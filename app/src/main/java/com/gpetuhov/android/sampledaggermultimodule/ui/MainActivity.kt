@@ -1,8 +1,10 @@
-package com.gpetuhov.android.sampledaggermultimodule
+package com.gpetuhov.android.sampledaggermultimodule.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.gpetuhov.android.core_utils.di.components.CoreUtilsComponent
+import com.gpetuhov.android.sampledaggermultimodule.R
+import com.gpetuhov.android.sampledaggermultimodule.di.FeatureProxyInjector
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startProfile() {
-        // TODO
+        // Get ProfileFeatureStarter and use it to start ProfileActivity
+        FeatureProxyInjector.getFeatureProfile()?.profileFeatureStarter()?.start(this)
     }
 }

@@ -1,6 +1,8 @@
 # SampleDaggerMultimodule
 Learn how to create clean architecture multimodule Android project with Dagger 2.
 
+This example is about horizontal organization of the project into modules. Each module itself can be organized into layers based on the Clean Architecture principles (not shown in this sample).
+
 ## Requirements
 * Android Studio 3.5 Canary 8
 * Kotlin 1.3.21

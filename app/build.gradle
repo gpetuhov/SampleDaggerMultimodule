@@ -42,4 +42,8 @@ dependencies {
     // Application can use any modules (Core and Feature, api and impl),
     // so that it will be able to interconnect them.
     implementation project(path: ':core-utils')
+    implementation project(path: ':core-db-api')
+    implementation project(path: ':core-db-impl')
+    implementation project(path: ':feature-profile-api')
+    implementation project(path: ':feature-profile-impl')
 }

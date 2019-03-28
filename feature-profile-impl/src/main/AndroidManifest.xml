@@ -1,2 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gpetuhov.android.feature_profile_impl"/>
+          package="com.gpetuhov.android.feature_profile_impl">
+
+    <!-- ProfileActivity must be declared in the manifest -->
+    <!-- Declaring activity in the module's manifest will also declare it
+         in the merged application manifest -->
+    <application>
+        <activity android:name=".ui.ProfileActivity">
+        </activity>
+    </application>
+
+</manifest>
