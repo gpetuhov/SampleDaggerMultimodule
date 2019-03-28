@@ -6,6 +6,7 @@ import com.gpetuhov.android.core_utils.di.scopes.PerFeature
 import com.gpetuhov.android.feature_profile_api.ProfileFeatureApi
 import com.gpetuhov.android.feature_profile_impl.di.dependencies.ProfileFeatureDependencies
 import com.gpetuhov.android.feature_profile_impl.di.modules.ProfileFeatureModule
+import com.gpetuhov.android.feature_profile_impl.ui.ProfileActivity
 import dagger.Component
 
 // ProfileFeatureComponent provides class instances with PerFeature scope.
@@ -39,7 +40,39 @@ import dagger.Component
 abstract class ProfileFeatureComponent : ProfileFeatureApi {
 
     companion object {
+        private var profileFeatureComponent: ProfileFeatureComponent? = null
+
+        // Create and initialize ProfileFeatureComponent
+        // with concrete initialized implementation of ProfileFeatureDependencies.
+        // This is called in the application module.
+        fun initAndGet(profileFeatureDependencies: ProfileFeatureDependencies): ProfileFeatureApi? {
+            if (profileFeatureComponent == null) {
+                profileFeatureComponent = DaggerProfileFeatureComponent.builder()
+                    .profileFeatureDependencies(profileFeatureDependencies)
+                    .build()
+            }
+            return profileFeatureComponent
+        }
+
+        // Get component, if initialized.
+        // This can be called only after initAndGet()
+        fun get(): ProfileFeatureComponent? {
+            if (profileFeatureComponent == null) {
+                throw RuntimeException("You must call 'initAndGet()' method")
+            }
+            return profileFeatureComponent
+        }
+
+        // Manually control scope lifecycle as usual
+        fun resetComponent() {
+            profileFeatureComponent = null
+        }
     }
+
+    // ProfileActivity is in the same module,
+    // so we can inject dependencies into it as usual.
+    abstract fun inject(profileActivity: ProfileActivity)
+
 
     // ProfileFeatureDependenciesComponent depends on CoreUtilsApi and CoreDbApi,
     // so it can provide instances of Utils and DbClientApi.
