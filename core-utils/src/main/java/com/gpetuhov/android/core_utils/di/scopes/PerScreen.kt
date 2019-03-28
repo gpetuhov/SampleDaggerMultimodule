@@ -1,4 +1,4 @@
-package com.gpetuhov.android.core_utils.dagger.scopes
+package com.gpetuhov.android.core_utils.di.scopes
 
 import javax.inject.Scope
 

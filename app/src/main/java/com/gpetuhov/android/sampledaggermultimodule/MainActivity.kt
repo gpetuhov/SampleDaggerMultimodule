@@ -2,7 +2,7 @@ package com.gpetuhov.android.sampledaggermultimodule
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.gpetuhov.android.core_utils.dagger.components.CoreUtilsComponent
+import com.gpetuhov.android.core_utils.di.components.CoreUtilsComponent
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

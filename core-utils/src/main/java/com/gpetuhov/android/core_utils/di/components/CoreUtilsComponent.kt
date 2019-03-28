@@ -1,7 +1,7 @@
-package com.gpetuhov.android.core_utils.dagger.components
+package com.gpetuhov.android.core_utils.di.components
 
-import com.gpetuhov.android.core_utils.api.CoreUtilsApi
-import com.gpetuhov.android.core_utils.dagger.modules.CoreUtilsModule
+import com.gpetuhov.android.core_utils.di.api.CoreUtilsApi
+import com.gpetuhov.android.core_utils.di.modules.CoreUtilsModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -41,5 +41,9 @@ abstract class CoreUtilsComponent : CoreUtilsApi {
             }
             return coreUtilsComponent
         }
+
+        // As CoreUtilsComponent provides classes of Singleton scope
+        // (which should live throughout all the application lifecycle),
+        // we never clear it.
     }
 }

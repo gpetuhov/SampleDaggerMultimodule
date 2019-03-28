@@ -1,4 +1,4 @@
-package com.gpetuhov.android.core_utils.api
+package com.gpetuhov.android.core_utils.di.api
 
 import com.gpetuhov.android.core_utils.utils.Utils
 

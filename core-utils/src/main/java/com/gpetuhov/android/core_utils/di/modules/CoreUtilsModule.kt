@@ -1,4 +1,4 @@
-package com.gpetuhov.android.core_utils.dagger.modules
+package com.gpetuhov.android.core_utils.di.modules
 
 import com.gpetuhov.android.core_utils.utils.Utils
 import dagger.Module
