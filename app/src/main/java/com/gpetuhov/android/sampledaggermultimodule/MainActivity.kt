@@ -16,7 +16,12 @@ class MainActivity : AppCompatActivity() {
         // Instead we call utils() method of CoreUtilsApi interface,
         // which CoreUtilsComponent implements.
         val appTitle = CoreUtilsComponent.get()?.utils()?.getAppTitle() ?: ""
+        app_title.text = appTitle
 
-        textView.text = appTitle
+        profile_button.setOnClickListener { startProfile() }
+    }
+
+    private fun startProfile() {
+        // TODO
     }
 }
