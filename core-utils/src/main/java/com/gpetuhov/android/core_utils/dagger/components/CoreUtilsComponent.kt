@@ -14,6 +14,20 @@ import javax.inject.Singleton
 // And that tells Dagger, that components, which have CoreUtilsComponent as their dependency,
 // will be also able to inject instance of the Utils class.
 
+// Notice that the instance of CoreUtilsComponent is created as singleton
+// right inside CoreUtilsComponent (inside the get() method),
+// not in the Application class as usual.
+// So to get CoreUtilsComponent instance and inject dependencies
+// we shall call CoreUtilsComponent.get().inject(this),
+// instead of something like App.coreUtilsComponent.inject(this).
+
+// CoreUtilsComponent does not have inject() methods,
+// otherwise it would have to know all the places, where it is used.
+// To get instance of the Utils class, provided by CoreUtilsComponent,
+// we should call utils() method of CoreUtilsApi.
+// Which tells Dagger, that CoreUtilsComponent
+// provides Utils class instance to the outer world.
+
 @Component(modules = [CoreUtilsModule::class])
 @Singleton
 abstract class CoreUtilsComponent : CoreUtilsApi {

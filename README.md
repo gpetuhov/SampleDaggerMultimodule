@@ -13,6 +13,8 @@ Learn how to create clean architecture multimodule Android project with Dagger 2
 
 * Core and Feauture modules are divided into 2 parts (modules): api and impl. Api module tells the outer world, what parts of the module can be used. Impl module is the implementation of Core or Feature logic.
 
+* Api modules are completely isolated, they cannot use any other modules.
+
 * Impl modules can use only api modules and cannot use impl modules (so that modules can't see implementations of other modules). Core-impl modules can use only their core-api modules. Feature-impl modules can use their feature-api modules, feature-api modules of other Features and core-api modules.
 
 * Core-utils module is not divided into api and impl, because of its simplicity.

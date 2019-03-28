@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -32,4 +33,13 @@ dependencies {
 
     // KAndroid
     implementation 'com.pawegio.kandroid:kandroid:0.8.8@aar'
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // Application can use any modules (Core and Feature, api and impl),
+    // so that it will be able to interconnect them.
+    implementation project(path: ':core-utils')
 }
