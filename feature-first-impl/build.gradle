@@ -37,6 +37,8 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"
 
+    // First Feature can access Core Utils module, Api of the Profile Feature and its own Api
     implementation project(path: ':core-utils')
     implementation project(path: ':feature-first-api')
+    implementation project(path: ':feature-profile-api')
 }
