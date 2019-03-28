@@ -21,10 +21,15 @@ class MainActivity : AppCompatActivity() {
         app_title.text = appTitle
 
         profile_button.setOnClickListener { startProfile() }
+        first_feature_button.setOnClickListener { startFirstFeature() }
     }
 
     private fun startProfile() {
         // Get ProfileFeatureStarter and use it to start ProfileActivity
         FeatureProxyInjector.getFeatureProfile()?.profileFeatureStarter()?.start(this)
+    }
+
+    private fun startFirstFeature() {
+        FeatureProxyInjector.getFeatureFirst()?.firstFeatureStarter()?.start(this)
     }
 }

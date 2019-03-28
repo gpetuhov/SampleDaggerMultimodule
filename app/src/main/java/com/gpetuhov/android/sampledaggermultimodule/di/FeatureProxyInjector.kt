@@ -2,6 +2,9 @@ package com.gpetuhov.android.sampledaggermultimodule.di
 
 import com.gpetuhov.android.core_db_impl.di.components.CoreDbComponent
 import com.gpetuhov.android.core_utils.di.components.CoreUtilsComponent
+import com.gpetuhov.android.feature_first_api.FirstFeatureApi
+import com.gpetuhov.android.feature_first_impl.di.components.DaggerFirstFeatureComponent_FirstFeatureDependenciesComponent
+import com.gpetuhov.android.feature_first_impl.di.components.FirstFeatureComponent
 import com.gpetuhov.android.feature_profile_api.ProfileFeatureApi
 import com.gpetuhov.android.feature_profile_impl.di.components.DaggerProfileFeatureComponent_ProfileFeatureDependenciesComponent
 import com.gpetuhov.android.feature_profile_impl.di.components.ProfileFeatureComponent
@@ -22,6 +25,15 @@ class FeatureProxyInjector {
                 DaggerProfileFeatureComponent_ProfileFeatureDependenciesComponent.builder()
                     .coreUtilsApi(CoreUtilsComponent.get())
                     .coreDbApi(CoreDbComponent.get())
+                    .build()
+            )
+        }
+
+        fun getFeatureFirst(): FirstFeatureApi? {
+            return FirstFeatureComponent.initAndGet(
+                DaggerFirstFeatureComponent_FirstFeatureDependenciesComponent.builder()
+                    .coreUtilsApi(CoreUtilsComponent.get())
+                    .profileFeatureApi(getFeatureProfile()) // Notice that here we initialize FirstFeatureComponent with ProfileFeatureComponent
                     .build()
             )
         }
