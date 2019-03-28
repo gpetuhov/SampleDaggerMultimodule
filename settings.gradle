@@ -1,2 +1,2 @@
-include ':app', ':core-utils', ':core-db-api', ':core-db-impl'
+include ':app', ':core-utils', ':core-db-api', ':core-db-impl', ':feature-profile-api'
 rootProject.name='SampleDaggerMultimodule'
