@@ -21,10 +21,15 @@ class MainActivity : AppCompatActivity() {
         app_title.text = appTitle
 
         first_feature_button.setOnClickListener { startFirstFeature() }
+        second_feature_button.setOnClickListener { startSecondFeature() }
     }
 
     private fun startFirstFeature() {
         // Get FirstFeatureStarter and use it to start FirstFeatureActivity
         FeatureProxyInjector.getFeatureFirst()?.firstFeatureStarter()?.start(this)
+    }
+
+    private fun startSecondFeature() {
+        FeatureProxyInjector.getFeatureSecond()?.secondFeatureStarter()?.start(this)
     }
 }
