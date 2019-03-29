@@ -10,6 +10,7 @@ import com.gpetuhov.android.feature_profile_api.ProfileFeatureStarter
 class ProfileFeatureStarterStub : ProfileFeatureStarter {
 
     override fun start(context: Context) {
+        // Instead of really starting ProfileActivity, just show toast.
         Toast.makeText(context, "Profile stub", Toast.LENGTH_SHORT).show()
     }
 }
