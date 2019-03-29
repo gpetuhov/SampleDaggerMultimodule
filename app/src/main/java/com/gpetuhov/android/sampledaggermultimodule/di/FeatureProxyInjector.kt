@@ -14,7 +14,17 @@ import com.gpetuhov.android.feature_profile_impl.di.components.ProfileFeatureCom
 
 class FeatureProxyInjector {
     companion object {
-        fun getFeatureProfile(): ProfileFeatureApi? {
+
+        fun getFeatureFirst(): FirstFeatureApi? {
+            return FirstFeatureComponent.initAndGet(
+                DaggerFirstFeatureComponent_FirstFeatureDependenciesComponent.builder()
+                    .coreUtilsApi(CoreUtilsComponent.get())
+                    .profileFeatureApi(getFeatureProfile()) // Notice that here we initialize FirstFeatureComponent with ProfileFeatureComponent
+                    .build()
+            )
+        }
+
+        private fun getFeatureProfile(): ProfileFeatureApi? {
             // Create and initialize ProfileFeatureComponent with ProfileFeatureDependenciesComponent,
             // which implements ProfileFeatureDependencies, so it provides Utils and DbClientApi instances.
             return ProfileFeatureComponent.initAndGet(
@@ -25,15 +35,6 @@ class FeatureProxyInjector {
                 DaggerProfileFeatureComponent_ProfileFeatureDependenciesComponent.builder()
                     .coreUtilsApi(CoreUtilsComponent.get())
                     .coreDbApi(CoreDbComponent.get())
-                    .build()
-            )
-        }
-
-        fun getFeatureFirst(): FirstFeatureApi? {
-            return FirstFeatureComponent.initAndGet(
-                DaggerFirstFeatureComponent_FirstFeatureDependenciesComponent.builder()
-                    .coreUtilsApi(CoreUtilsComponent.get())
-                    .profileFeatureApi(getFeatureProfile()) // Notice that here we initialize FirstFeatureComponent with ProfileFeatureComponent
                     .build()
             )
         }

@@ -25,14 +25,4 @@ class ProfileActivity : AppCompatActivity() {
         app_title.text = utils.getAppTitle()
         user_name.text = dbClientApi.getUser().name
     }
-
-    override fun onPause() {
-        if (isFinishing) {
-            // Clear component if the activity is finishing.
-            // It is better to do it like this,
-            // because onDestroy() is not guaranteed to be called.
-            ProfileFeatureComponent.resetComponent()
-        }
-        super.onPause()
-    }
 }

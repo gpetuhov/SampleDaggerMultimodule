@@ -22,10 +22,10 @@
             android:text="First feature"/>
 
     <Button
-            android:id="@+id/profile_button"
+            android:id="@+id/second_feature_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Profile"/>
+            android:text="Second feature"/>
 
 </LinearLayout>

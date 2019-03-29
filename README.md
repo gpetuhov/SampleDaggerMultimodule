@@ -27,7 +27,7 @@ This example is about horizontal organization of the project into modules. Each 
 
 * This sample application has 2 Core modules: utils and db. Core-utils contains some common logic (returns app title). Core-db gets current from the "database" (just returns instance of the User class). Core-db is divided into core-db-api and core-db-impl modules.
 
-* This sample application has 3 Feature modules: First, Second and Profile. Profile feature can be started from the MainActivity and also both from the First and Second Features. So First and Second Feature modules must know about feature-profile-api module. 
+* This sample application has 3 Feature modules: First, Second and Profile. Profile feature can be started both from the First and Second Features. So First and Second Feature modules must know about feature-profile-api module. 
 
 ## References
 https://habr.com/ru/company/kaspersky/blog/422555/

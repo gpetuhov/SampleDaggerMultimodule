@@ -35,6 +35,7 @@ abstract class FirstFeatureComponent : FirstFeatureApi {
             return firstFeatureComponent
         }
 
+        // Manually control scope lifecycle as usual
         fun resetComponent() {
             firstFeatureComponent = null
         }

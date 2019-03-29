@@ -20,16 +20,11 @@ class MainActivity : AppCompatActivity() {
         val appTitle = CoreUtilsComponent.get()?.utils()?.getAppTitle() ?: ""
         app_title.text = appTitle
 
-        profile_button.setOnClickListener { startProfile() }
         first_feature_button.setOnClickListener { startFirstFeature() }
     }
 
-    private fun startProfile() {
-        // Get ProfileFeatureStarter and use it to start ProfileActivity
-        FeatureProxyInjector.getFeatureProfile()?.profileFeatureStarter()?.start(this)
-    }
-
     private fun startFirstFeature() {
+        // Get FirstFeatureStarter and use it to start FirstFeatureActivity
         FeatureProxyInjector.getFeatureFirst()?.firstFeatureStarter()?.start(this)
     }
 }

@@ -25,6 +25,9 @@ class FirstFeatureActivity : AppCompatActivity() {
 
     override fun onPause() {
         if (isFinishing) {
+            // Clear component if the activity is finishing.
+            // It is better to do it like this,
+            // because onDestroy() is not guaranteed to be called.
             FirstFeatureComponent.resetComponent()
         }
         super.onPause()

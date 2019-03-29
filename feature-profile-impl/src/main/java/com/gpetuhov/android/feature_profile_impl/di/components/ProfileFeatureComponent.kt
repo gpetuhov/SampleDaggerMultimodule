@@ -68,10 +68,8 @@ abstract class ProfileFeatureComponent : ProfileFeatureApi {
             return profileFeatureComponent
         }
 
-        // Manually control scope lifecycle as usual
-        fun resetComponent() {
-            profileFeatureComponent = null
-        }
+        // We should not manually clear profileFeatureComponent directly,
+        // because it is used in other components and is controlled by them.
     }
 
     // ProfileActivity is in the same module,
