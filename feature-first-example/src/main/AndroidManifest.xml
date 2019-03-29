@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools" package="com.gpetuhov.android.feature_first_example">
+
+    <application
+            android:name=".application.FirstFeatureExampleApp"
+            android:allowBackup="false"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- Start FirstFeatureActivity right from the manifest
+             as the first and only activity of this application module -->
+        <activity android:name="com.gpetuhov.android.feature_first_impl.ui.FirstFeatureActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
